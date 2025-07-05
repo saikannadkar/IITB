@@ -350,5 +350,51 @@ document.addEventListener('DOMContentLoaded', function() {
     
     images.forEach(img => imageObserver.observe(img));
     
+    // Add click interaction to GitHub buttons
+    const githubButtons = document.querySelectorAll('.btn-github, .github-btn, .footer-github-link');
+    githubButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            // Add ripple effect
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple');
+            ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+            
+            // Add analytics or tracking here if needed
+            console.log('GitHub repository link clicked');
+        });
+    });
+
+    // Floating GitHub button animation
+    const floatingGithub = document.querySelector('.floating-github');
+    if (floatingGithub) {
+        let isVisible = true;
+        
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset;
+            const documentHeight = document.documentElement.scrollHeight;
+            const windowHeight = window.innerHeight;
+            
+            // Hide button near footer
+            if (scrollTop + windowHeight > documentHeight - 200) {
+                if (isVisible) {
+                    floatingGithub.style.opacity = '0';
+                    floatingGithub.style.transform = 'translateY(-50%) translateX(100px)';
+                    isVisible = false;
+                }
+            } else {
+                if (!isVisible) {
+                    floatingGithub.style.opacity = '1';
+                    floatingGithub.style.transform = 'translateY(-50%) translateX(0)';
+                    isVisible = true;
+                }
+            }
+        });
+    }
+
     console.log('🚀 Techfest CA Program 2025 - Interactive features loaded!');
 });

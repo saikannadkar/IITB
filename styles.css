@@ -229,6 +229,18 @@ body {
     color: #fff;
 }
 
+.btn-github {
+    background: #24292e;
+    color: #fff;
+    border: 2px solid #24292e;
+}
+
+.btn-github:hover {
+    background: #1a1e22;
+    border-color: #1a1e22;
+    transform: translateY(-2px);
+}
+
 .btn-large {
     padding: 20px 40px;
     font-size: 1.1rem;
@@ -820,6 +832,99 @@ body {
     color: #a0a9ba;
 }
 
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #00d4ff, #ff6b35);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #ff6b35, #00d4ff);
+}
+
+/* Floating GitHub Button */
+.floating-github {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 999;
+    transition: all 0.3s ease;
+}
+
+.github-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #24292e;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(36, 41, 46, 0.3);
+    transition: all 0.3s ease;
+    border: 2px solid #24292e;
+}
+
+.github-btn:hover {
+    background: #1a1e22;
+    border-color: #1a1e22;
+    transform: translateX(-5px);
+    box-shadow: 0 6px 20px rgba(36, 41, 46, 0.4);
+}
+
+.github-btn i {
+    font-size: 1.2rem;
+}
+
+.github-text {
+    font-size: 0.9rem;
+    display: none;
+}
+
+.floating-github:hover .github-text {
+    display: block;
+}
+
+.floating-github:hover .github-btn {
+    padding: 12px 20px;
+}
+
+/* Footer GitHub Link */
+.footer-github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #00d4ff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: 2px solid #00d4ff;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    background: transparent;
+}
+
+.footer-github-link:hover {
+    background: #00d4ff;
+    color: #0d1117;
+    transform: translateY(-2px);
+}
+
+.footer-github-link i {
+    font-size: 1.1rem;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hamburger {
@@ -876,11 +981,29 @@ body {
 
     .hero-buttons {
         justify-content: center;
+        flex-wrap: wrap;
     }
 
     .btn {
         padding: 12px 25px;
         font-size: 0.9rem;
+        margin: 5px;
+    }
+
+    .floating-github {
+        right: 15px;
+        top: auto;
+        bottom: 20px;
+        transform: none;
+    }
+
+    .github-text {
+        display: none !important;
+    }
+
+    .github-btn {
+        padding: 10px 15px;
+        border-radius: 50px;
     }
 }
 
@@ -940,22 +1063,4 @@ html {
 
 .fade-in-up {
     animation: fadeInUp 0.6s ease-out forwards;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(45deg, #00d4ff, #ff6b35);
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(45deg, #ff6b35, #00d4ff);
 }
